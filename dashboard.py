@@ -6,12 +6,10 @@ from dash.dependencies import Input, Output
 import pandas as pd
 import plotly.express as px
 
-
 def load_data():
     data = pd.read_csv("data.csv")
     data["timestamp"] = pd.to_datetime(data["timestamp"])
     return data
-
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
@@ -49,16 +47,19 @@ app.layout = dbc.Container(
 )
 def update_dashboard(n_intervals):
     data = load_data()
-    last_update = data["timestamp"].max().strftime("%Y-%m-%-20 %H:%M:%S")
-    fig = px.line(
-    data,
-    x="timestamp",
-    y="value",
-    title="Valeurs récupérées au fil du temps",
-    labels={"timestamp": "Date et heure", "value": "Valeur"},
-)
+    last_update = data["timestamp"].max().strftime("%Y-%m-%d %H:%M:%S")
 
-return last_update, fig
-if name == "main":
-app.run_server(debug=True)
+    fig = px.line(
+                data,
+        x="timestamp",
+        y="value",
+        title="Valeurs récupérées au fil du temps",
+        labels={"timestamp": "Date et heure", "value": "Valeur"},
+    )
+
+    return last_update, fig
+
+
+if __name__ == "__main__":
+    app.run_server(debug=True)
 
