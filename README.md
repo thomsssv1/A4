@@ -3,3 +3,4 @@ some changes
 =======
 Projet Git A4
 >>>>>>> origin/master
+some changes
