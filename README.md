@@ -9,3 +9,5 @@ Le cron est utilisé à la fois sur l'instance et en local.
 Sur le site, vous avez accès à un calendrier qui vous permet de sélectionner la période que vous souhaitez visualiser et vous pouvez également choisir les courbes que vous souhaitez afficher.
 
 Site accesible au lien suivant : http://13.48.3.249:8050
+
+PS : (petit bug à 17h le 25 Mars 2023)
